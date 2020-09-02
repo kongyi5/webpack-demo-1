@@ -6,3 +6,20 @@ console.log(png);
 div.innerHTML = `
 <img src="${png}">
 `;
+
+const button = document.createElement("button");
+button.innerText = "懒加载";
+button.onclick = () => {
+  const promise = import("./lazy");
+  promise.then(
+    (module) => {
+      const fn = module.default;
+      fn();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+};
+
+div.appendChild(button);
