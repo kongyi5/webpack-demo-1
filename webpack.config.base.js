@@ -14,4 +14,12 @@ module.exports = {
       template: "src/assets/index.html",
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
 };
